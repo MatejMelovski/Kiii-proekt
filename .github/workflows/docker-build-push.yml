@@ -3,7 +3,10 @@ name: Build and Push Docker Images
 on:
   push:
     branches:
-      - main  # или master, зависно како се вика твојата главна гранка
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   build-and-push:
@@ -23,17 +26,14 @@ jobs:
         run: |
           docker build -t matejdocker1/backend:latest ./backend
 
-      # 4. Push backend Docker image
       - name: Push Backend Docker image
         run: |
           docker push matejdocker1/backend:latest
 
-      # 5. Build frontend Docker image
       - name: Build Frontend Docker image
         run: |
           docker build -t matejdocker1/frontend:latest ./frontend
 
-      # 6. Push frontend Docker image
       - name: Push Frontend Docker image
         run: |
           docker push matejdocker1/frontend:latest
