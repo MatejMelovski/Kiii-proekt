@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-deployment
-  namespace: myapp
   labels:
     app: backend
 spec:
@@ -39,9 +38,9 @@ spec:
                 configMapKeyRef:
                   name: mongo-config
                   key: MONGO_DB
-            # - name: JWT_SECRET
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: backend-secret
-            #       key: JWT_SECRET
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: JWT_SECRET
 
