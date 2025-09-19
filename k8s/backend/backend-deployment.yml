@@ -39,3 +39,12 @@ spec:
                 configMapKeyRef:
                   name: mongo-config
                   key: MONGO_DB
+<<<<<<< HEAD
+=======
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: JWT_SECRET
+
+>>>>>>> parent of 5e9514c (Updated Deployment)
