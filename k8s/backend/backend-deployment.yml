@@ -24,6 +24,8 @@ spec:
             - configMapRef:
                 name: backend-config
           env:
+            - name: MONGODB_URI
+              value: "mongodb://mongo-service:27017/conduit"
             - name: MONGO_INITDB_ROOT_USERNAME
               valueFrom:
                 secretKeyRef:
@@ -39,9 +41,8 @@ spec:
                 configMapKeyRef:
                   name: mongo-config
                   key: MONGO_DB
-            - name: JWT_SECRET
+            - name: SECRET
               valueFrom:
                 secretKeyRef:
                   name: backend-secret
                   key: JWT_SECRET
-
