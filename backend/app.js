@@ -27,14 +27,14 @@ app.use(express.static(__dirname + '/public'));
 app.use(session({ secret: 'conduit', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false  }));
 
 
-const jwt = require('express-jwt');
+// const jwt = require('express-jwt');
 
-app.use(
-  jwt({
-    secret: process.env.JWT_SECRET,   // <-- ова мора да постои
-    algorithms: ['HS256']
-  }).unless({ path: ['/api/users/login', '/api/users/register'] }) // пример
-);
+// app.use(
+//   jwt({
+//     secret: process.env.JWT_SECRET,   // <-- ова мора да постои
+//     algorithms: ['HS256']
+//   }).unless({ path: ['/api/users/login', '/api/users/register'] }) // пример
+// );
 
 
 
